@@ -13,7 +13,7 @@ Terima kasih karena sudah hadir.
 
 Terima kasih karena sudah menjadi bagian dari cerita, tawa, dan kenangan yang selama ini kita lalui bersama.
 
-Setiap foto di website ini adalah pengingat bahwa aku beruntung pernah dan masih bisa berjalan bersamamu.
+Setiap moment ini adalah pengingat bahwa aku beruntung pernah dan masih bisa berjalan bersamamu.
 
 Aku tahu aku bukan orang yang sempurna.
 
