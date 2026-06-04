@@ -40,10 +40,12 @@ btn.onclick = () => {
 
     music.play().catch(() => {});
 
-    document.querySelector(".letter").classList.remove("hidden");
-    document.querySelector(".gallery").classList.remove("hidden");
-    document.querySelector(".reasons").classList.remove("hidden");
-    document.querySelector(".ending").classList.remove("hidden");
+document.querySelector(".letter")?.classList.remove("hidden");
+document.querySelector(".gallery")?.classList.remove("hidden");
+document.querySelector(".special")?.classList.remove("hidden");
+document.querySelector(".timeline")?.classList.remove("hidden");
+document.querySelector(".reasons")?.classList.remove("hidden");
+document.querySelector(".ending")?.classList.remove("hidden");
 
     window.scrollTo({
         top: window.innerHeight,
