@@ -1,88 +1,113 @@
 const btn = document.getElementById("openBtn");
-
-const music =
-document.getElementById("music");
+const music = document.getElementById("music");
 
 const text = `
 
 Happy Birthday, Echaa Sayang ❤️
 
-Hari ini dunia sedang merayakan seseorang yang sangat berarti bagiku.
+Hari ini bukan cuma hari ulang tahunmu.
 
-Terima kasih karena sudah hadir dalam hidupku.
+Hari ini adalah hari dimana seseorang yang sangat berarti dalam hidupku dilahirkan ke dunia.
 
-Terima kasih karena selalu ada,
-selalu mendengarkan,
-selalu menjadi alasan kenapa banyak hariku terasa lebih indah.
+Terima kasih karena sudah hadir.
 
-Aku bersyukur bisa mengenalmu.
+Terima kasih karena sudah menjadi bagian dari cerita, tawa, dan kenangan yang selama ini kita lalui bersama.
 
-Aku bersyukur bisa membuat kenangan bersamamu.
+Setiap foto di website ini adalah pengingat bahwa aku beruntung pernah dan masih bisa berjalan bersamamu.
 
-Dan aku bersyukur karena sampai hari ini,
-aku masih bisa melihat senyum yang selalu aku sukai itu.
+Aku tahu aku bukan orang yang sempurna.
 
-Semoga di umur yang baru ini,
-kamu selalu sehat,
-selalu bahagia,
-dan semua impian yang kamu perjuangkan bisa menjadi kenyataan.
+Tapi satu hal yang selalu pasti:
 
-Tetaplah menjadi Echaa yang baik,
-yang kuat,
-dan yang selalu membuat dunia di sekitarnya terasa lebih hangat.
+Aku akan selalu berusaha membuatmu tersenyum.
 
-I Love You ❤️
+Di umur yang baru ini, aku berharap semua impianmu tercapai, kesehatan selalu menyertaimu, dan kebahagiaan selalu menemukan jalannya menuju hatimu.
+
+Tetaplah menjadi Echaa yang aku kenal.
+
+Yang baik.
+Yang kuat.
+Yang manis.
+Dan yang selalu berhasil membuat hariku terasa lebih berwarna.
+
+Happy Birthday ❤️
+
+I Love You.
 
 `;
 
 btn.onclick = () => {
 
-music.play();
+    music.play().catch(() => {});
 
-document
-.querySelector(".letter")
-.classList.remove("hidden");
+    document.querySelector(".letter").classList.remove("hidden");
+    document.querySelector(".gallery").classList.remove("hidden");
+    document.querySelector(".reasons").classList.remove("hidden");
+    document.querySelector(".ending").classList.remove("hidden");
 
-document
-.querySelector(".gallery")
-.classList.remove("hidden");
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth"
+    });
 
-document
-.querySelector(".reasons")
-.classList.remove("hidden");
+    let i = 0;
 
-document
-.querySelector(".ending")
-.classList.remove("hidden");
+    const typing = () => {
 
-window.scrollTo({
-top:window.innerHeight,
-behavior:"smooth"
-});
+        if (i < text.length) {
 
-let i=0;
+            document.getElementById("typing").innerHTML += text.charAt(i);
 
-function typing(){
+            i++;
 
-if(i<text.length){
+            setTimeout(typing, 25);
+        }
 
-document
-.getElementById("typing")
-.innerHTML += text.charAt(i);
+    };
 
-i++;
+    typing();
 
-setTimeout(
-typing,
-35
-);
+    btn.style.display = "none";
 
-}
+    createHearts();
 
-}
+};
 
-typing();
+function createHearts() {
 
-btn.style.display="none";
+    setInterval(() => {
+
+        const heart = document.createElement("div");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-20px";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.zIndex = "9999";
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        let pos = -20;
+
+        const fall = setInterval(() => {
+
+            pos += 3;
+
+            heart.style.top = pos + "px";
+
+            if (pos > window.innerHeight) {
+
+                clearInterval(fall);
+
+                heart.remove();
+
+            }
+
+        }, 20);
+
+    }, 500);
 
 }
